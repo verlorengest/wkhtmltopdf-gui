@@ -1,6 +1,33 @@
 wkhtmltopdf and wkhtmltoimage
 -----------------------------
+key features added in this fork:
 
+*   **website crawler**:
+    *   input a starting url, and the tool will attempt to find all html pages on that site.
+    *   option to include subdomains in the crawl.
+    *   set a maximum number of pages to crawl.
+    *   discovered urls are automatically added to the input list for pdf conversion.
+    *   (note: currently does not respect robots.txt).
+
+*   **batch pdf generation**:
+    *   processes each item (file or url) from the input list individually.
+    *   generates a separate pdf for each input, saved to a user-selected output directory.
+    *   filenames for pdfs are automatically generated based on the source.
+
+*   **enhanced logging & ui**:
+    *   detailed logging for both crawling and pdf conversion processes.
+    *   `wkhtmltopdf` stdout and stderr are displayed in the log during conversion.
+    *   improved command preview reflecting batch mode.
+    *   gui updates are handled in a thread-safe manner.
+
+*   **drag-and-drop**:
+    *   support for dragging and dropping html files onto the input list (requires `tkinterdnd2`).
+
+*   **wkhtmltopdf path handling**:
+    *   attempts to auto-detect `wkhtmltopdf`.
+    *   prompts user to browse for the executable if not found in path.
+
+   
 # wkhtmltopdf gui with enhancements
 
 this is a graphical user interface (gui) for the `wkhtmltopdf` command-line tool. i forked an initial concept to make a more usable gui and then added several features, most notably a website crawler.
